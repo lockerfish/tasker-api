@@ -2,26 +2,26 @@ var mongoose = require("mongoose");
 
 var Task = mongoose.Schema({
 	taskTitle: {
-		type=String,
-		default="",
-		required=true
+		type:String,
+		default:"",
+		required:true
 	},
 	taskDescription: {
 		type:String,
-		default="",
-		required=true
+		default:"",
+		required:true
 	},
 	taskStartDate: {
 		type:Date,
-		required=true
+		required:true
 	},
 	taskEndDate: {
 		type:Date,
-		required=true
+		required:true
 	},
 	userId: {
 		type:Number,
-		required=true
+		required:true
 	}
 });
 
