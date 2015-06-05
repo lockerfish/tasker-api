@@ -1,16 +1,14 @@
 var express = require('express');
-
 var app = express();
+var router = express.Router();
+var taskController = require("./controllers/tasks");
 
-app.get("/", function (req, res) {
-	res.send('hello world');
-});
+app.use("/api", router);
 
-var server = app.listen(3000, function () {
-	
-	var host = server.address().address;
-	var port = server.address().port;
+router.route("/tasks").get(taskController.getTasks);
+router.route("/task").get(taskController.getTask);
+router.route("/addTask").post(taskController.addTask);
+router.route("/updateTask").post(taskController.updateTask);
+router.route("/deleteTask").get(taskController.deleteTask);
 
-	console.log("server is listening at:%s on port %s", host, port);
-});
-
+app.listen(3000);
